@@ -1,0 +1,17 @@
+sudo: required
+language: node_js
+node_js:
+  - "10.19.0"
+branches:
+  only:
+    - master
+before_script:
+  - npm install -g @angular/cli
+  - npm install @angular/flex-layout --save
+  - ng add @angular/material
+script:
+  - npm install
+  - npm run build
+deploy:
+  skip_cleanup: true
+  provider: firebase
